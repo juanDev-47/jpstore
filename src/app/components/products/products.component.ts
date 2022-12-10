@@ -61,18 +61,20 @@ export class ProductsComponent implements OnInit {
     this.statusDetail = 'loading';
     if (this.statusDetail === 'loading') {
       this.spinner.show();
-      // console.log('hola')
     }
+
     this.productsService.getProductById(id).subscribe((dataProduct) => {
       this.toggleProductDetail();
       this.productChosen = dataProduct;
       this.statusDetail = 'success';
+      this.spinner.hide();
     }, (error) => {
       this.statusDetail = 'error';
+      this.spinner.hide();
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: error.message,
+        text: error,
         confirmButtonText: 'Cool'
       });
     });

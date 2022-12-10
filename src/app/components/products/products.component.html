@@ -3,7 +3,7 @@
 <p>Today: {{ today | date: "short" }}</p>
 <button (click)="createNewProduct()" >click to add</button>
 <button (click)="onShowProductDetail('1234')" >detail error</button>
-<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-scale-multiple"><p style="color: white" > Loading... </p></ngx-spinner>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-scale-multiple" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
 <div class="products--grid">
   <app-product
     (addedProduct)="onAddedProduct($event)"
